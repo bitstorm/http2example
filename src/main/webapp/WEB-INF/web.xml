@@ -27,6 +27,6 @@
 
 	<filter-mapping>
 		<filter-name>wicket.http2example</filter-name>
-		<url-pattern>/gigi/*</url-pattern>
+		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 </web-app>

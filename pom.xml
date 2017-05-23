@@ -102,6 +102,7 @@
             <artifactId>jetty-server</artifactId>
             <version>${jetty9.version}</version>
         </dependency>
+        
         <dependency>
 		    <groupId>org.eclipse.jetty.alpn</groupId>
 		    <artifactId>alpn-api</artifactId>
@@ -184,14 +185,13 @@
                 <configuration>
                     <stopPort>8888</stopPort>
                     <stopKey>quit</stopKey>
+                    <jettyXml>${basedir}/src/main/config/jetty-http2.xml</jettyXml>
                     <jvmArgs>
                         -Dlog4j.configuration=file://${basedir}/src/main/resources/log4j.properties
                         -Xbootclasspath/p:${settings.localRepository}/org/mortbay/jetty/alpn/alpn-boot/${alpn-version}/alpn-boot-${alpn-version}.jar
+                        -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005
                     </jvmArgs>
-                    <jettyXml>${basedir}/src/main/config/jetty-http2.xml</jettyXml>
-                    <webApp>
-                        <contextPath>/</contextPath>
-                    </webApp>
+                    <contextXml>${basedir}/src/main/config/jetty-context.xml</contextXml>
                 </configuration>
                 <dependencies>
                     

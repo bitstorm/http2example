@@ -37,6 +37,7 @@ public class HomePage extends WebPage
 		ResourceReference reference = application.getJavaScriptLibrarySettings().
         		getJQueryReference();
 
+
 		response.render(JavaScriptHeaderItem.forReference(reference));
 		response.render(new PushHeaderItem(this, webPageRequest, webPageResponse)
 		    .push(Arrays.asList(new PushItem(reference))));
